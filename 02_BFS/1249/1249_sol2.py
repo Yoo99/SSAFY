@@ -15,7 +15,7 @@ def find_path(arr):
                 new_cost = cost + arr[nx][ny]
                 if new_cost<distances[nx][ny]:
                     distances[nx][ny] = new_cost
-                    queue.append([(nx,ny)])
+                    queue.append((nx,ny))
 
     return distances[N-1][N-1]
 
