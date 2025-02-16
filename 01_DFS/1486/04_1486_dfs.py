@@ -6,8 +6,9 @@ sys.stdin = open("1486_input.txt", "r")
 # total: 그 대상들의 키의 합
 def dfs(idx, count, total):
     global result # 전역변수 result를 조건에 따라 갱신
-    # total이 B보다 크면 # 조사종료 조건
+    # total이 B보다 크면 조사종료 조건
     if total >= B:
+        # 둘 중에 더 작은 값
         result = min(total, result)
         return
     # 또 다른 조사 종료 조건

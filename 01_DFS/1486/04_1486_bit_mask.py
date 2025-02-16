@@ -15,10 +15,10 @@ for test_case in range(1, T+1):
     # 모든 경의 수 (공집합 제외하고 처리)
     # for i in range(1, 1<<N): # 1부터 1을 N번 만큼 shift해서 처리
     for i in range(1, 2**N):
-        height = 0   # 높이를 더해나갈 변수
+        height = 0   # 높이를 더해나갈 변수 초기화
         for j in range(N): # 0번 부터 N번까지의 사람을 선택했는지 판별용
             # 각 부분 집합
-            # i 번째 경우에서 j번째 요소가 선택되었는지를 판별
+            # i 번째 경우에서 j번째 요소가 선택되었는지를 판별한다
             if i & (1<<j):
                 height += arr[j]
         # 모든 요소에 대해서 i번째 경우의 수를 다 구했다면

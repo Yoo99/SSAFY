@@ -26,3 +26,22 @@ edge_data = [
     [4,5],
     [5,6]
 ]
+visited = [False] * (V+1)
+
+def dfs(now):
+    print(now, end = ' ')
+    # 조회를 시작했다. now번째를 방문했다.
+    visited[now] = True
+    for next in range(V):
+        # now -> next 이동 가능한지 인접 행렬로 체크
+        # next 번째 방문한 적 없는지 체크
+        if adj_matrix[now][next] and not visited[next]:
+            dfs(next)
+
+adj_matrix = [[0] * V for _ in range(V)]
+print(adj_matrix)
+for v,e in edge_data:
+    adj_matrix[v][e] = 1
+    adj_matrix[e][v] = 1
+print(adj_matrix)
+dfs(0)

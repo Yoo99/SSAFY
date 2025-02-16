@@ -1,5 +1,6 @@
 
 import heapq
+
 numbers = [9,4,12,3,7,8,11]
 
 heapq.heapify(numbers)
