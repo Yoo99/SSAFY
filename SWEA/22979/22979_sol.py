@@ -17,3 +17,4 @@ for test_case in range(1, T+1):
         elif ele ==0:
             continue
     print(''.join(arr))
+    
