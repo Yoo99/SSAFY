@@ -43,7 +43,16 @@ for test_case in range(1, T+1):
     for i in range(len(arr)+1):
         d = list(combinations(arr, i))
         generate_subsets.extend(d)
-    print(generate_subsets)
+    ans_list = []
+    for d in generate_subsets:
+        if sum(d) == mid:
+            ans_list += ["B"] * len(d)
+            ans_list += ["A"] * (len(arr) - len(d))
+            print(''.join(ans_list))
+            break
+        # else:
+        #     print(ans)
+
     # subsets, pair_sets = generate_subsets(arr)
     # for idx in range(0, len(subsets)):
     #     if sum(subsets[idx]) == sum(pair_sets[idx]) == mid:
