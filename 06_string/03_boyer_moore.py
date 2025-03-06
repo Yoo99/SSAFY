@@ -6,19 +6,21 @@ def build_bad_char_heuristic(pattern):
 
 def boyer_moore(text, pattern):
     bad_char = build_bad_char_heuristic(pattern)
+    print(bad_char)
     m = len(pattern)
     n = len(text)
     i = 0
 
     while i <= n - m:
-        j = m - 1
+        j = m - 1 # 비교해야 하는 값만 잘 처리해주면 된다
 
         while j >= 0 and pattern[j] == text[i + j]:
             j -= 1
 
         if j < 0:
             print(f"패턴이 위치 {i}에서 발견되었습니다.")
-            i += 1  
+            i += 1
+
         else:
             skip = j - bad_char.get(text[i + j], -1)
             i += max(1, skip)

@@ -20,8 +20,8 @@ pos = text.index(pattern)
 
 # 접두사/접미사
 text = "hello world"
-print(text.startswith("hello"))  # True
-print(text.endswith("world"))    # True
+print(text.startswith("hello"))  # True , 접두사
+print(text.endswith("world"))    # True , 접미사
 
 # 패턴 등장 횟수
 text = "hello hello world"
@@ -37,7 +37,7 @@ print(text.partition(" "))  # ('hello', ' ', 'world')
 
 # 특정 문자 제거
 text = "  hello world  "
-print(text.strip())  # "hello world"
+print(text.strip())  # "hello world" , 원본 배열을 변형시키지 않아, 새로운 반환값을 생성
 text = "---hello---"
 print(text.strip("-"))  # "hello"
 
