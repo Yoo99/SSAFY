@@ -19,16 +19,6 @@ for test_case in range(1, T+1):
             e = arr[:ele]
 
             arr = arr[ele:] +e
-        elif ele<0:
-            for i in range(abs(ele)):
-                d = arr[-1]
-                arr = [d] + arr[:-1]
-        elif ele ==0:
-            continue
-    print(''.join(arr))
-    
-
-            arr = arr[ele:] + e
 
     print(''.join(arr))
 
