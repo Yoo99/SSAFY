@@ -17,18 +17,8 @@ for test_case in range(1, T+1):
             if ele>len(arr):
                 ele = ele%len(arr)
             e = arr[:ele]
-<<<<<<< HEAD
+
             arr = arr[ele:] +e
-        elif ele<0:
-            for i in range(abs(ele)):
-                d = arr[-1]
-                arr = [d] + arr[:-1]
-        elif ele ==0:
-            continue
-    print(''.join(arr))
-    
-=======
-            arr = arr[ele:] + e
 
     print(''.join(arr))
->>>>>>> 0dd699f0e70f3a1a658e9fb2f51913ef87901dce
+
