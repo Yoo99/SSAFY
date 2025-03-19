@@ -8,5 +8,33 @@ F,S,G,U,D = map(int, input().split())
 visited = [False for _ in range(F+1)]
 visited[0] = True
 Flag = True
-while Flag:
-    if
+cnt = 0
+ans = "use the stairs"
+direction = [U,-D]
+while S!=G:
+    # if visited[S]:
+    #     Flag = False
+    #     break
+    print(S)
+    if S == G:
+        ans = cnt
+        break
+    elif S<G and (S+U)<=F and :
+        S = S+U
+        if not visited[S]:
+            visited[S] = True
+            cnt +=1
+        else:
+            S -=D
+    elif S>G and (S-D)>=0:
+        S -= D
+        if not visited[True]:
+            visited[S] = True
+            cnt +=1
+        else:
+            S +=U
+print(ans)
+
+
+
+
