@@ -1,22 +1,8 @@
 import sys
-sys.stdin = open("1012_input.txt")
+sys.stdin = open("1012_input2.txt")
 from collections import deque
 
 direction = [(-1,0,), (0,1),(1,0),(0,-1)]
-
-def bfs(row, col, cnt):
-    for dx,dy in direction:
-        nx,ny = row + dx, dy + col
-        if 0<=nx<M and 0<=ny<N and arr[nx][ny] ==1:
-            cnt +=1
-            queue.append((nx,ny, cnt))
-            arr[nx][ny] = 0
-        else:
-            spot.append(cnt)
-
-
-
-
 
 T = int(input())
 for _ in range(T):
@@ -26,24 +12,22 @@ for _ in range(T):
         x,y = map(int, input().split())
         arr[x][y] = 1
     spot = []
-    for row in arr:
-        print(row)
-    visited = [[False]*N for _ in range(M)]
+    visited = [[False] * N for _ in range(M)]
     for row in range(M):
         for col in range(N):
-            if arr[row][col] ==1:
+            if arr[row][col] ==1 and not visited[row][col]:
                 cnt = 0
-                queue = deque([(row,col,cnt)])
+                arr[row][col] = 0
+                queue = deque([(row, col)])
                 while queue:
-                    row,col,cnt = queue.popleft()
-                    arr[row][col] = 0
+                    cx,cy = queue.popleft()
+                    visited[cx][cy] = True
                     cnt +=1
                     for dx, dy in direction:
-                        nx, ny = row + dx, dy + col
-                        if 0 <= nx < M and 0 <= ny < N and arr[nx][ny]:
-                            cnt += 1
-                            queue.append((nx, ny, cnt))
+                        nx,ny= cx + dx, cy +dy
+                        if 0<=nx<M and 0<=ny<N and arr[nx][ny] == 1 and not visited[nx][ny]:
+                            queue.append((nx,ny))
                             arr[nx][ny] = 0
                 spot.append(cnt)
+    print(len(spot))
 
-    print(spot)
