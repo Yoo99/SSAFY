@@ -17,7 +17,10 @@ def find_rel(node):
             elif child == b:
                 Flag = True
                 return cnt
+<<<<<<< HEAD
             break
+=======
+>>>>>>> 850ebaf97aaf360d184ea05110e018523e8b19e6
     return cnt, Flag
 
 N = int(input()) # 전체 사람의 수
@@ -32,6 +35,10 @@ cnt = 0
 visited = [False for _ in range(N+1)]
 Flag = False
 cnt, Flag = find_rel(a)
+<<<<<<< HEAD
+=======
+print(cnt, Flag)
+>>>>>>> 850ebaf97aaf360d184ea05110e018523e8b19e6
 if Flag ==True:
     print(cnt)
 else:
