@@ -69,3 +69,4 @@ for idx in range(V):
         continue # 아무것도 하지 않고, 다음 노드로 넘긴다
     # 시작정점 : idx -> 0으로 조회를 시작
     dfs(0)
+print(adj_matrix)
