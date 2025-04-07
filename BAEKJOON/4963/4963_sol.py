@@ -21,6 +21,7 @@ while True:
                 queue = deque([(i,j)])
                 cnt = 0
                 while queue:
+                    print(queue)
                     x,y = queue.popleft()
                     arr[x][y] = 0
                     cnt +=1
@@ -28,8 +29,7 @@ while True:
                         nx,ny=  x+dx, y+dy
                         if 0<=nx<h and 0<=ny<w and arr[nx][ny]==1:
                             queue.append((nx,ny))
-                        else:
-                            continue
+
                 island+=1
 
     result.append(island)
