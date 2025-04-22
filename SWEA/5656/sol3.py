@@ -35,14 +35,14 @@ for _ in range(N):
                         else:
                             continue
     # 중력에 의한 효과를 주기
-            for col in range(W):
-                for row in range(H-1):
-                    if arr[row][col] !=0:
-                        d = arr[row][col]
-                        if arr[row+1][col] ==0:
-                            arr[row+1][col] = d
-                            arr[row][col] = 0
-                        else:
-                            continue
+                for col in range(W):
+                    for row in range(H-1):
+                        if arr[row][col] !=0:
+                            d = arr[row][col]
+                            if arr[row+1][col] ==0:
+                                arr[row+1][col] = d
+                                arr[row][col] = 0
+                            # else:
+                            #     continue
 for row in arr:
     print(*row)
