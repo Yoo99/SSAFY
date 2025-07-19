@@ -1,0 +1,42 @@
+import sys
+from collections import deque
+sys.stdin = open("input.txt")
+
+directions = [(-1,0), (0, -1), (1, 0), (0, 1)]
+arr =[]
+
+for _ in range(5):
+    line= list(map(int, input().split()))
+    arr.append(line)
+i, j = map(int, input().split())
+
+# 도착지 정보 미리 확인하기
+tr, tc = 0 , 0
+for idx in range(len(arr)):
+    for idy in range(len(arr[0])):
+        if arr[idx][idy]==1:
+            tr,tc = idx, idy
+            break
+def find_path(i,j, tr, tc, arr):
+    visited = [[False for _ in range(5)] for _ in range(5)]  # 방문 여부 확인용
+    dist = [[0 for _ in range(5)] for _ in range(5)]
+    q = deque()
+    q.append((i,j))
+    visited[i][j] = True
+    dist[i][j] = 0
+    while q:
+        x,y = q.popleft()
+        if x==tr and y == tc:
+            return dist[x][y]
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            if 0<=nx<5 and 0<=ny<5:
+                if arr[nx][ny]!=-1 and not visited[nx][ny]:
+                    q.append((nx,ny))
+                    visited[nx][ny] = True
+                    dist[nx][ny] = dist[x][y] + 1
+
+    return -1
+
+
+print(find_path(i,j, tr,tc, arr))
