@@ -7,6 +7,7 @@ direction = [(-1,0), (0, 1), (1, 0), (0,-1)]
 def find_path(start_x, start_y, dist = 0):
     global time
     global end_x, end_y
+<<<<<<< HEAD
     hq = [(start_x, start_y, 0)]
     while hq: # queue가 존재할 때
         d = len(hq)
@@ -37,12 +38,43 @@ def find_path(start_x, start_y, dist = 0):
                             heapq.heappush(hq, (nx,ny,new_dist+1))
                     else:
                         heapq.heappush(hq, (nx,ny, w+1))
+=======
+    hq = [(dist,start_x, start_y)] # 마지막에 있는 w의 경우에는 time에 해당
+    while hq: # queue가 존재할 때
+        w, x, y = heapq.heappop(hq) # q에 들어있던 x 좌표와 y 좌표 추출
+        if x==end_x and y == end_y:
+            break
+        for dx, dy in direction:
+            nx, ny=  dx+x, dy+y
+            # maze가 2가 아닐 때
+            if 0<=nx<N and 0<=ny<N and maze[nx][ny]!= 1 and maze[nx][ny]!=2:
+                new_dist = w+1
+                if maze2[nx][ny]<new_dist:
+                    continue
+                else:
+                    maze2[nx][ny] = new_dist
+                    heapq.heappush(hq, (new_dist,nx,ny))
+            # maze[nx][ny]=2 일 때,
+            if 0<=nx<N and 0<=ny<N and maze[nx][ny] == 2:
+                if (w+1)%3 ==0: # 폭풍우를 지나갈 수 있을 때
+                    new_dist = w+1
+                    if maze2[nx][ny] < new_dist:
+                        continue
+                    else:
+                        maze2[nx][ny] = new_dist
+                        heapq.heappush(hq, (new_dist, nx,ny))
+                else:
+                    heapq.heappush(hq, (w+1,x,y))
+>>>>>>> be92a9095ad8276d0658538cbd5c12d53ebe88b4
 
 
     return maze2
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> be92a9095ad8276d0658538cbd5c12d53ebe88b4
 T = int(input()) # test case의 개수
 for test_case in range(1, T+1):
     N = int(input()) # 수영장의 가로 세로 크기
@@ -53,9 +85,16 @@ for test_case in range(1, T+1):
     time = 0
     maze2[start_x][start_y] = 0
     find_path(start_x, start_y,0)
+<<<<<<< HEAD
     print(maze2[end_x][end_y])
     for row in maze:
         print(row)
     print("=================")
     for row in maze2:
         print(row)
+=======
+    if maze2[end_x][end_y] == float('inf'):
+        print(f"#{test_case} {-1}")
+        continue
+    print(f"#{test_case} {maze2[end_x][end_y]}")
+>>>>>>> be92a9095ad8276d0658538cbd5c12d53ebe88b4

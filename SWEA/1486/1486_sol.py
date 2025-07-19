@@ -13,7 +13,6 @@ def find_height(idx, cur_height):
     find_height(idx+1,cur_height+height[idx])
     find_height(idx+1, cur_height)
 
-
 T = int(input())
 for test_case in range(1, T+1):
     N, B = map(int, input().split())
