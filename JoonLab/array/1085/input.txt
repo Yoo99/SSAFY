@@ -1,0 +1,7 @@
+5 7
+aaa 100
+bbb 200
+ccc 300
+ddd 400
+eee 500
+aaa aaa bbb ccc ddd eee eee
